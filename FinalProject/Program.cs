@@ -25,8 +25,9 @@ namespace FinalProject
                 try
                 {
                     var context = services.GetRequiredService<DataBaseContext>();
+                    var userContext = services.GetRequiredService<ApplicationDbContext>();
 
-                    DBSeeder.Initialize(context);
+                    DBSeeder.Initialize(context, userContext);
                 }
                 catch (Exception ex)
                 {

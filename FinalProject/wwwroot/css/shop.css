@@ -1,0 +1,43 @@
+﻿/*
+    #EEE5E9 - pearl
+    #D64933 - redthing
+    #7C7C7C - greay
+    #92DCE5 - blue
+
+*/
+
+button {
+    background-color: #D64933;
+    color: black;
+}
+
+.btn {
+    background-color: #D64933;
+    color: black;
+}
+
+body {
+    background-color: #EEE5E9;
+}
+
+h1 {
+    text-align: center;
+    text-decoration: underline;
+    color: black;
+}
+
+table {
+    text-align: center;
+    width: 100%;
+}
+
+th {
+    background-color: #7C7C7C;
+    color: black;
+}
+
+tr {
+    background-color: #92DCE5;
+    color: black;
+}
+

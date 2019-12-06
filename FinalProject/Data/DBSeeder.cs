@@ -9,12 +9,17 @@ namespace FinalProject.Data
 {
     public class DBSeeder
     {
-        public static void Initialize(DataBaseContext context)
+        public static void Initialize(DataBaseContext context, ApplicationDbContext userContext)
         {
-            context.Database.EnsureCreated();
+
+            userContext.Database.EnsureDeleted();
+            context.Database.EnsureDeleted();
+
             context.Database.Migrate();
+            context.Database.EnsureCreated();
 
-
+            userContext.Database.Migrate();
+            userContext.Database.EnsureCreated();
 
             if (context.Levels.Any())
             {
