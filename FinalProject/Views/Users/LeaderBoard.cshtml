@@ -1,0 +1,162 @@
+﻿@model IEnumerable<FinalProject.Models.User>
+
+@{
+    IEnumerable<HighScore> collection = ViewData["Level_1"] as IEnumerable<HighScore>;
+    List<HighScore> level_1 = new List<HighScore>(collection);
+
+    collection = ViewData["Level_2"] as IEnumerable<HighScore>;
+    List<HighScore> level_2 = new List<HighScore>(collection);
+
+    collection = ViewData["Level_3"] as IEnumerable<HighScore>;
+    List<HighScore> level_3 = new List<HighScore>(collection);
+
+    collection = ViewData["Level_4"] as IEnumerable<HighScore>;
+    List<HighScore> level_4 = new List<HighScore>(collection);
+
+    collection = ViewData["Level_5"] as IEnumerable<HighScore>;
+    List<HighScore> level_5 = new List<HighScore>(collection);
+
+}
+
+<h1>High Scores</h1>
+
+<h3>Level 1 Highscores</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Time
+            </th>
+            <th>
+                Username
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in level_1)
+        {
+            <tr>
+                <td>
+                    @user.time
+                </td>
+                <td>
+                    @Model.Where(o => o.UserID == user.UserID).FirstOrDefault().UserName
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Level 2 Highscores</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Time
+            </th>
+            <th>
+                Username
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in level_2)
+        {
+            <tr>
+                <td>
+                    @user.time
+                </td>
+                <td>
+                    @Model.Where(o => o.UserID == user.UserID).FirstOrDefault().UserName
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Level 3 Highscores</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Time
+            </th>
+            <th>
+                Username
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in level_3)
+        {
+            <tr>
+                <td>
+                    @user.time
+                </td>
+                <td>
+                    @Model.Where(o => o.UserID == user.UserID).FirstOrDefault().UserName
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Level 4 Highscores</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Time
+            </th>
+            <th>
+                Username
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in level_4)
+        {
+            <tr>
+                <td>
+                    @user.time
+                </td>
+                <td>
+                    @Model.Where(o => o.UserID == user.UserID).FirstOrDefault().UserName
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Level 5 Highscores</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Time
+            </th>
+            <th>
+                Username
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in level_5)
+        {
+            <tr>
+                <td>
+                    @user.time
+                </td>
+                <td>
+                    @Model.Where(o => o.UserID == user.UserID).FirstOrDefault().UserName
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
