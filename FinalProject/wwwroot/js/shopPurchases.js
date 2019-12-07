@@ -1,11 +1,33 @@
-﻿$(function () {
+﻿/*
+ * Authors:   Jonathon Smith and Giovanni Varuloa and Hank Gansert
+ * Date:      12/5/19
+ * Course:    CS 4540, University of Utah, School of Computing
+ * Copyright: CS 4540 and Jonathon Smith - This work may not be copied for use in Academic Coursework.
+ *
+ * I, Jonathon Smith and Giovanni Varula and Hank Gansert, certify that I wrote this code from scratch and did not copy it in part or whole from
+ * another source.  Any references used in the completion of the assignment are cited in my README file.
+ *
+ * File Contents
+ *
+ *    Ajax functions for shop purchases.
+ */
+
+$(function () {
     console.log("loaded");
 })
 
+/**
+ * I use these globals to keep track of the users money and nos so they do not have to refresht he page
+ * */
 var nos = 0;
 var firstRefresh = true;
 var money = 0;
 
+/*
+ * this java script function takes in email and money amount and sends it to the controller
+ * if the controller is successful it changes the html to reflect the change
+ * if it isn't successful it does not change anything
+ * */
 function buy_nos(e, email, par, nosNum, moneySum, moneyID) {
     console.log("in buy_nos function");
 
@@ -77,7 +99,11 @@ function buy_nos(e, email, par, nosNum, moneySum, moneyID) {
         console.log("but I will always do this")
     });
 }
-
+/*
+ * this java script function takes in email and money amount and sends it to the controller
+ * if the controller is successful it changes the html to reflect the change
+ * if it isn't successful it does not change anything
+ * */
 function buy_blue(e, email, moneySum, moneyID) {
     console.log("in buy_blue function");
 
@@ -145,7 +171,11 @@ function buy_blue(e, email, moneySum, moneyID) {
         console.log("but I will always do this")
     });
 }
-
+/*
+ * this java script function takes in email and money amount and sends it to the controller
+ * if the controller is successful it changes the html to reflect the change
+ * if it isn't successful it does not change anything
+ * */
 function buy_green(e, email, moneySum, moneyID) {
     console.log("in buy_green function");
 
@@ -213,7 +243,11 @@ function buy_green(e, email, moneySum, moneyID) {
         console.log("but I will always do this")
     });
 }
-
+/*
+ * this java script function takes in email and money amount and sends it to the controller
+ * if the controller is successful it changes the html to reflect the change
+ * if it isn't successful it does not change anything
+ * */
 function buy_purple(e, email, moneySum, moneyID) {
     console.log("in buy_purple function");
 
@@ -282,6 +316,11 @@ function buy_purple(e, email, moneySum, moneyID) {
     });
 }
 
+/*
+ * this java script function takes in email and money amount and sends it to the controller
+ * if the controller is successful it changes the html to reflect the change
+ * if it isn't successful it does not change anything
+ * */
 function buy_chrome(e, email, moneySum, moneyID) {
     console.log("in buy_chrome function");
 
@@ -350,6 +389,11 @@ function buy_chrome(e, email, moneySum, moneyID) {
     });
 }
 
+/*
+ * this java script function takes in email and money amount and sends it to the controller
+ * if the controller is successful it changes the html to reflect the change
+ * if it isn't successful it does not change anything
+ * */
 function buy_points(e, email, moneySum, moneyID) {
     console.log("in buy_money function");
 

@@ -1,4 +1,20 @@
-﻿
+﻿<!--
+  Author:    Jonathon Smith and Giovanni Varuloa and Hank Gansert
+  Partner:   None
+  Date:      12/6/19
+  Course:    CS 4540, University of Utah, School of Computing
+  Copyright: CS 4540 and Jonathon Smith and Giovanni Varuloa and Hank Gansert - This work may not be copied for use in Academic Coursework.
+
+  I, Jonathon Smith and Giovanni Varuloa and Hank Gansert, certify that I wrote this code from scratch and did not copy it in part or whole from
+  another source.  Any references used in the completion of the assignment are cited in my README file.
+
+  File Contents
+
+    View for the shop.
+
+-->
+
+
 @{
     ViewData["Title"] = "Shop";
     User user = ViewData["UserInfo"] as User;
@@ -9,13 +25,14 @@
 
 <h1>Shop</h1>
 
-@{ 
+@{
     var moneyID = "gamerpoints";
 }
 
-
+<!--sets Header for displaying money-->
 <h2 id="gamerpoints">You currently have @user.Cash Gamer Points</h2>
 
+<!--Sets up header and button for buying points-->
 <h3> Buy more Gamer Points!</h3>
 <div style="text-align: center">
     <form onsubmit="buy_points(event, '@user.Email', @user.Cash, '@moneyID' )" asp-action="BuyPoints" method="POST">
@@ -23,6 +40,9 @@
     </form>
 </div>
 
+<!--displays table for the shop
+    each row has an image and a description along with a button to buy the item
+    buying uses javascript to make the purchases and sweetalerts for visual feedback-->
 <body>
     <table class="table table-bordered">
         <thead>
@@ -39,7 +59,7 @@
             <tr>
                 <td>
                     <p>NOS</p>
-                    <img src="~/images/tempbike.jpg" alt="tmp" height="100" width="100" />
+                    <img src="~/images/nos_tank.jpg" alt="tmp" height="100" width="100" />
                 </td>
                 <td>
                     @{
@@ -56,7 +76,7 @@
             <tr>
                 <td>
                     <p>Red Skin</p>
-                    <img src="~/images/tempbike.jpg" alt="tmp" height="100" width="100" />
+                    <img src="~/images/bike_red.png" alt="tmp" height="100" width="100" />
                 </td>
                 <td>
                     <p>Adds a red color to your dirtbike!</p>
@@ -80,7 +100,7 @@
             <tr>
                 <td>
                     <p>Blue Skin</p>
-                    <img src="~/images/tempbike.jpg" alt="tmp" height="100" width="100" />
+                    <img src="~/images/bike_blue.png" alt="tmp" height="100" width="100" />
                 </td>
                 <td>
                     <p>Adds a blue color to your dirtbike!</p>
@@ -104,7 +124,7 @@
             <tr>
                 <td>
                     <p>Green Skin</p>
-                    <img src="~/images/tempbike.jpg" alt="tmp" height="100" width="100" />
+                    <img src="~/images/bike_green.png" alt="tmp" height="100" width="100" />
                 </td>
                 <td>
                     <p>Adds a green color to your dirtbike!</p>
@@ -128,7 +148,7 @@
             <tr>
                 <td>
                     <p>Purple Skin</p>
-                    <img src="~/images/tempbike.jpg" alt="tmp" height="100" width="100" />
+                    <img src="~/images/bike_purple.png" alt="tmp" height="100" width="100" />
                 </td>
                 <td>
                     <p>Adds a purple color to your dirtbike!</p>
@@ -152,7 +172,7 @@
             <tr>
                 <td>
                     <p>Chrome Skin</p>
-                    <img src="~/images/tempbike.jpg" alt="tmp" height="100" width="100" />
+                    <img src="~/images/bike_chrome.png" alt="tmp" height="100" width="100" />
                 </td>
                 <td>
                     <p>Adds a chrome color to your dirtbike!</p>
@@ -164,7 +184,7 @@
                             <button type="button" class="btn disabled" style="background-color: green" disabled>Purchased</button>
                         }
                         else
-                        { 
+                        {
                             <form onsubmit="buy_chrome(event, '@user.Email', @user.Cash, '@moneyID' )" asp-action="BuyChrome" method="POST">
                                 <button id="chromebtn" type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
                             </form>

@@ -1,4 +1,21 @@
-﻿@{
+﻿<!--
+  Author:    Jonathon Smith and Giovanni Varuloa and Hank Gansert
+  Partner:   None
+  Date:      12/6/19
+  Course:    CS 4540, University of Utah, School of Computing
+  Copyright: CS 4540 and Jonathon Smith and Giovanni Varuloa and Hank Gansert - This work may not be copied for use in Academic Coursework.
+
+  I, Jonathon Smith and Giovanni Varuloa and Hank Gansert, certify that I wrote this code from scratch and did not copy it in part or whole from
+  another source.  Any references used in the completion of the assignment are cited in my README file.
+
+  File Contents
+
+    Entry Point for the game. 
+
+-->
+
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -6,22 +23,7 @@
 {
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.0.0/pixi.min.js"></script>
-    <!--
-    <script type="text/javascript" src="~/js/Game_Controller.js"></script>
-    <script type="text/javascript" src="~/js/bike.js"></script>
 
-
-    <script type="text/javascript">
-
-        var game_controller;
-
-        $(function () {
-            game_controller = new Game_Controller();
-
-            game_controller.main();
-        });
-    </script>
-    -->
 }
 
 <!doctype html>
@@ -34,8 +36,8 @@
 
 <body onload="init();">
     <div class="text-center">
-        <h1 class="display-4">Welcome</h1>
-        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        <h1 class="display-4">Dirt Bike Racer</h1>
+        <h2>Level 1</h2>
     </div>
 
     <div align="center">
@@ -52,8 +54,4 @@
         }
     </script>
 
-
-
-
-    <!--<div id="canvas_div"></div>-->
 </body>

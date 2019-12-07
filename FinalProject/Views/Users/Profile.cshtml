@@ -1,4 +1,18 @@
-﻿
+﻿<!--
+  Author:    Jonathon Smith and Giovanni Varuloa and Hank Gansert
+  Partner:   None
+  Date:      12/6/19
+  Course:    CS 4540, University of Utah, School of Computing
+  Copyright: CS 4540 and Jonathon Smith and Giovanni Varuloa and Hank Gansert - This work may not be copied for use in Academic Coursework.
+
+  I, Jonathon Smith and Giovanni Varuloa and Hank Gansert, certify that I wrote this code from scratch and did not copy it in part or whole from
+  another source.  Any references used in the completion of the assignment are cited in my README file.
+
+  File Contents
+
+    View for the profile.
+
+-->
 @{
     ViewData["Title"] = "Profile";
     User user = ViewData["UserInfo"] as User;
@@ -8,6 +22,7 @@
 
 <link rel="stylesheet" href="~/css/profile.css">
 
+<!--sets up generic values to display in the profile-->
 <h1>Profile</h1>
 
 <h2>User: @user.Email </h2>
@@ -16,6 +31,7 @@
 
 <h2>Nos Canisters: @user.NosContainers</h2>
 
+<!--sets up table to display a users times on a track-->
 <body>
     <h3>Level Scores</h3>
     <table>
@@ -44,6 +60,7 @@
         </tbody>
     </table>
 
+    <!--Displays a users unlocks in a table-->
     <h3>Unlocks</h3>
     <table>
         <thead>
