@@ -71,7 +71,7 @@ namespace FinalProject
                 "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
                 options.User.RequireUniqueEmail = false;
             });
-
+            
             services.ConfigureApplicationCookie(options =>
             {
                 // Cookie settings

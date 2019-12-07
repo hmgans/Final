@@ -5,21 +5,24 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FinalProject.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FinalProject.Controllers
 {
     public class HomeController : Controller
     {
+        [Authorize(Roles = "Player")]
         public IActionResult Index()
         {
             return View();
         }
-
+        [Authorize(Roles = "Player")]
         public IActionResult Privacy()
         {
             return View();
         }
 
+        [Authorize(Roles = "Player")]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
