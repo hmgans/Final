@@ -201,7 +201,7 @@ namespace FinalProject.Controllers
 
                 var user = _context.Users.Where(e => e.Email == Email).FirstOrDefault();
                 user.NosContainers += 1;
-
+                user.Cash -= 100;
                 _context.SaveChanges();
 
 
@@ -223,7 +223,7 @@ namespace FinalProject.Controllers
 
                 var user = _context.Users.Where(e => e.Email == Email).FirstOrDefault();
                 user.SkinBlue = true;
-
+                user.Cash -= 200;
                 _context.SaveChanges();
 
 
@@ -243,7 +243,7 @@ namespace FinalProject.Controllers
 
                 var user = _context.Users.Where(e => e.Email == Email).FirstOrDefault();
                 user.SkinGreen = true;
-
+                user.Cash -= 200;
                 _context.SaveChanges();
 
 
@@ -263,7 +263,7 @@ namespace FinalProject.Controllers
 
                 var user = _context.Users.Where(e => e.Email == Email).FirstOrDefault();
                 user.SkinPurple = true;
-
+                user.Cash -= 200;
                 _context.SaveChanges();
 
 
@@ -278,12 +278,12 @@ namespace FinalProject.Controllers
 
         public JsonResult BuyChromeSkin(string Email, int Money)
         {
-            if (Money >= 200)
+            if (Money >= 500)
             {
 
                 var user = _context.Users.Where(e => e.Email == Email).FirstOrDefault();
                 user.SkinChrome = true;
-
+                user.Cash -= 500;
                 _context.SaveChanges();
 
 
@@ -302,7 +302,7 @@ namespace FinalProject.Controllers
 
             var user = _context.Users.Where(e => e.Email == Email).FirstOrDefault();
             user.Cash += 500;
-
+            
             _context.SaveChanges();
 
 
