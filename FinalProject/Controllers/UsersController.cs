@@ -90,6 +90,12 @@ namespace FinalProject.Controllers
         }
 
         [Authorize(Roles = "Player")]
+        public async Task<IActionResult> Overview()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Player")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
