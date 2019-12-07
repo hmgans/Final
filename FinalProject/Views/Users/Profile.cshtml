@@ -1,0 +1,150 @@
+﻿
+@{
+    ViewData["Title"] = "Profile";
+    User user = ViewData["UserInfo"] as User;
+    IEnumerable<HighScore> scores = ViewData["LevelTimes"] as IEnumerable<HighScore>;
+
+}
+
+<link rel="stylesheet" href="~/css/profile.css">
+
+<h1>Profile</h1>
+
+<h2>User: @user.Email </h2>
+
+<h2>Gamer Points: @user.Cash </h2>
+
+<h2>Nos Canisters: @user.NosContainers</h2>
+
+<body>
+    <h3>Level Scores</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Level
+                </th>
+                <th>
+                    Time
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var level in scores)
+            {
+                <tr>
+                    <td>
+                        @level.LevelID
+                    </td>
+                    <td>
+                        @level.time
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h3>Unlocks</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Item
+                </th>
+                <th>
+                    Status
+                </th>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    RedSkin Picture
+                </td>
+                @if (user.SkinRed == true)
+                {
+                    <td>
+                        UNLOCKED!
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        Locked...
+                    </td>
+                }
+            </tr>
+            <tr>
+                <td>
+                    BlueSkin Picture
+                </td>
+                @if (user.SkinBlue == true)
+                {
+                    <td>
+                        UNLOCKED!
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        Locked...
+                    </td>
+                }
+            </tr>
+            <tr>
+                <td>
+                    Greenkind Picture
+                </td>
+                @if (user.SkinGreen == true)
+                {
+                    <td>
+                        UNLOCKED!
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        Locked...
+                    </td>
+                }
+            </tr>
+            <tr>
+                <td>
+                    purpleSKin Picture
+                </td>
+                @if (user.SkinPurple == true)
+                {
+                    <td>
+                        UNLOCKED!
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        Locked...
+                    </td>
+                }
+            </tr>
+            <tr>
+                <td>
+                    Chromeskin Picture
+                </td>
+                @if (user.SkinChrome == true)
+                {
+                    <td>
+                        UNLOCKED!
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        Locked...
+                    </td>
+                }
+            </tr>
+        </tbody>
+    </table>
+
+
+</body>

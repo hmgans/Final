@@ -9,7 +9,19 @@
 
 <h1>Shop</h1>
 
-<h2>You currently have @user.Cash GamerPoints</h2>
+@{ 
+    var moneyID = "gamerpoints";
+}
+
+
+<h2 id="gamerpoints">You currently have @user.Cash Gamer Points</h2>
+
+<h3> Buy more Gamer Points!</h3>
+<div style="text-align: center">
+    <form onsubmit="buy_points(event, '@user.Email', @user.Cash, '@moneyID' )" asp-action="BuyPoints" method="POST">
+        <button type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
+    </form>
+</div>
 
 <body>
     <table class="table table-bordered">
@@ -30,15 +42,15 @@
                     <img src="~/images/tempbike.jpg" alt="tmp" height="100" width="100" />
                 </td>
                 <td>
-                    @{ 
+                    @{
                         var parID = "containerDisplay";
                     }
                     <p>Adds a NOS container to your inventory that can be used to give a speed boost to your next race!</p>
                     <p id="containerDisplay">You currently have @user.NosContainers containers!</p>
                     <p>Costs 100 GamerPoints</p>
-                    <form onsubmit="buy_nos(event, '@user.Email', '@parID', @user.NosContainers )" asp-action="BuyNos" method="POST">
+                    <form onsubmit="buy_nos(event, '@user.Email', '@parID', @user.NosContainers, @user.Cash, '@moneyID' )" asp-action="BuyNos" method="POST">
                         <button type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
-                    </form> 
+                    </form>
                 </td>
             </tr>
             <tr>
@@ -81,9 +93,9 @@
                         }
                         else
                         {
-                           // <form onsubmit="buy_blue(event, 'bluebtn', @user.Cash )" asp-action="BuyBlue" method="POST">
+                            <form onsubmit="buy_blue(event, '@user.Email', @user.Cash, '@moneyID' )" asp-action="BuyBlue" method="POST">
                                 <button id="bluebtn" type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
-                           // </form>
+                            </form>
 
                         }
                     }
@@ -105,8 +117,8 @@
                         }
                         else
                         {
-                            <form>
-                                <button type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
+                            <form onsubmit="buy_green(event, '@user.Email', @user.Cash, '@moneyID' )" asp-action="BuyGreen" method="POST">
+                                <button id="greenbtn" type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
                             </form>
 
                         }
@@ -129,8 +141,8 @@
                         }
                         else
                         {
-                            <form>
-                                <button type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
+                            <form onsubmit="buy_purple(event, '@user.Email', @user.Cash, '@moneyID' )" asp-action="BuyPurple" method="POST">
+                                <button id="purplebtn" type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
                             </form>
 
                         }
@@ -152,11 +164,10 @@
                             <button type="button" class="btn disabled" style="background-color: green" disabled>Purchased</button>
                         }
                         else
-                        {
-                            <form onsubmit="" asp-action="BuyThing" method="POST">
-                                <button type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
+                        { 
+                            <form onsubmit="buy_chrome(event, '@user.Email', @user.Cash, '@moneyID' )" asp-action="BuyChrome" method="POST">
+                                <button id="chromebtn" type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
                             </form>
-
                         }
                     }
                 </td>
@@ -170,4 +181,7 @@
 @section Scripts
 {
     <script src="~/js/shopPurchases.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
+
+
 }
