@@ -117,8 +117,8 @@
                         }
                         else
                         {
-                            <form>
-                                <button type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
+                            <form onsubmit="buy_green(event, '@user.Email', @user.Cash, '@moneyID' )" asp-action="BuyGreen" method="POST">
+                                <button id="greenbtn" type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
                             </form>
 
                         }
@@ -141,8 +141,8 @@
                         }
                         else
                         {
-                            <form>
-                                <button type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
+                            <form onsubmit="buy_purple(event, '@user.Email', @user.Cash, '@moneyID' )" asp-action="BuyPurple" method="POST">
+                                <button id="purplebtn" type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
                             </form>
 
                         }
@@ -164,11 +164,10 @@
                             <button type="button" class="btn disabled" style="background-color: green" disabled>Purchased</button>
                         }
                         else
-                        {
-                            <form onsubmit="" asp-action="BuyThing" method="POST">
-                                <button type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
+                        { 
+                            <form onsubmit="buy_chrome(event, '@user.Email', @user.Cash, '@moneyID' )" asp-action="BuyChrome" method="POST">
+                                <button id="chromebtn" type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
                             </form>
-
                         }
                     }
                 </td>
