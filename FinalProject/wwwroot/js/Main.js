@@ -9,7 +9,8 @@
  *
  * File Contents
  *
- *    Main gameplay functionality. Allows user to move the bike forward and trigger the Nos. Added Keyboard handler from 
+ *    Main gameplay functionality. Allows user to move the bike forward and trigger the Nos. Added Keyboard handler 
+ *    from https://github.com/kittykatattack/learningPixi#keyboard
  */
 
 function Main() {

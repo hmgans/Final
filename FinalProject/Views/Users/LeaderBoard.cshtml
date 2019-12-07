@@ -1,4 +1,20 @@
-﻿@model IEnumerable<FinalProject.Models.User>
+﻿<!--
+  Author:    Jonathon Smith and Giovanni Varuloa and Hank Gansert
+  Partner:   None
+  Date:      12/6/19
+  Course:    CS 4540, University of Utah, School of Computing
+  Copyright: CS 4540 and Jonathon Smith and Giovanni Varuloa and Hank Gansert - This work may not be copied for use in Academic Coursework.
+
+  I, Jonathon Smith and Giovanni Varuloa and Hank Gansert, certify that I wrote this code from scratch and did not copy it in part or whole from
+  another source.  Any references used in the completion of the assignment are cited in my README file.
+
+  File Contents
+
+    View for the leaderboard.
+
+-->
+
+@model IEnumerable<FinalProject.Models.User>
 
 @{
     IEnumerable<HighScore> collection = ViewData["Level_1"] as IEnumerable<HighScore>;
