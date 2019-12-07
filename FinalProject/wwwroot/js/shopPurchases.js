@@ -37,7 +37,7 @@ function buy_nos(e, email, par, nosNum, moneySum, moneyID) {
         if (result.money == true) {
             swal.fire({
                 type: 'error',
-                title: 'You do not have enough GamerPoints!',
+                title: 'You do not have enough Gamer Points!',
                 text: 'Buy some more!'
             })
         }
@@ -108,7 +108,7 @@ function buy_blue(e, email, moneySum, moneyID) {
         if (result.money == true) {
             swal.fire({
                 type: 'error',
-                title: 'You do not have enough GamerPoints!',
+                title: 'You do not have enough Gamer Points!',
                 text: 'Buy some more!'
             })
         }
@@ -116,7 +116,7 @@ function buy_blue(e, email, moneySum, moneyID) {
 
             money -= 200;
 
-            $("#" + moneyID).text("You currently have " + money + " GamerPoints");
+            $("#" + moneyID).text("You currently have " + money + " Gamer Points");
 
             $("#bluebtn").text("Purchased").prop("disabled", true).css('background-color', 'green');
 
@@ -176,7 +176,7 @@ function buy_green(e, email, moneySum, moneyID) {
         if (result.money == true) {
             swal.fire({
                 type: 'error',
-                title: 'You do not have enough GamerPoints!',
+                title: 'You do not have enough Gamer Points!',
                 text: 'Buy some more!'
             })
         }
@@ -184,7 +184,7 @@ function buy_green(e, email, moneySum, moneyID) {
 
             money -= 200;
 
-            $("#" + moneyID).text("You currently have " + money + " GamerPoints");
+            $("#" + moneyID).text("You currently have " + money + " Gamer Points");
 
             $("#greenbtn").text("Purchased").prop("disabled", true).css('background-color', 'green');
 
@@ -244,7 +244,7 @@ function buy_purple(e, email, moneySum, moneyID) {
         if (result.money == true) {
             swal.fire({
                 type: 'error',
-                title: 'You do not have enough GamerPoints!',
+                title: 'You do not have enough Gamer Points!',
                 text: 'Buy some more!'
             })
         }
@@ -252,14 +252,14 @@ function buy_purple(e, email, moneySum, moneyID) {
 
             money -= 200;
 
-            $("#" + moneyID).text("You currently have " + money + " GamerPoints");
+            $("#" + moneyID).text("You currently have " + money + " Gamer Points");
 
             $("#purplebtn").text("Purchased").prop("disabled", true).css('background-color', 'green');
 
             Swal.fire
                 ({
                     type: 'success',
-                    title: 'You bought a purlpe skin!',
+                    title: 'You bought a purple skin!',
                     text: 'Race on gamer!'
                 })
 
@@ -312,15 +312,15 @@ function buy_chrome(e, email, moneySum, moneyID) {
         if (result.money == true) {
             swal.fire({
                 type: 'error',
-                title: 'You do not have enough GamerPoints!',
+                title: 'You do not have enough Gamer Points!',
                 text: 'Buy some more!'
             })
         }
         else {
 
-            money -= 200;
+            money -= 500;
 
-            $("#" + moneyID).text("You currently have " + money + " GamerPoints");
+            $("#" + moneyID).text("You currently have " + money + " Gamer Points");
 
             $("#chromebtn").text("Purchased").prop("disabled", true).css('background-color', 'green');
 

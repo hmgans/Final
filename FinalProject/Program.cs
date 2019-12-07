@@ -28,8 +28,6 @@ namespace FinalProject
                     var context = services.GetRequiredService<DataBaseContext>();
                     var userContext = services.GetRequiredService<ApplicationDbContext>();
                     var _userManager = services.GetRequiredService<UserManager<IdentityUser>>();
-                    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-
 
                     DBSeeder.Initialize(context, userContext);
                 }
