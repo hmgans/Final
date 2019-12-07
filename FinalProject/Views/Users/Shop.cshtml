@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewData["Title"] = "Shop";
+    User user = ViewData["UserInfo"] as User;
 }
 
 
@@ -8,8 +9,9 @@
 
 <h1>Shop</h1>
 
-<body>
+<h2>You currently have @user.Cash GamerPoints</h2>
 
+<body>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -28,8 +30,15 @@
                     <img src="~/images/tempbike.jpg" alt="tmp" height="100" width="100" />
                 </td>
                 <td>
+                    @{ 
+                        var parID = "containerDisplay";
+                    }
                     <p>Adds a NOS container to your inventory that can be used to give a speed boost to your next race!</p>
-                    <button type="button" class="btn">Buy now!</button>
+                    <p id="containerDisplay">You currently have @user.NosContainers containers!</p>
+                    <p>Costs 100 GamerPoints</p>
+                    <form onsubmit="buy_nos(event, '@user.Email', '@parID', @user.NosContainers )" asp-action="BuyNos" method="POST">
+                        <button type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
+                    </form> 
                 </td>
             </tr>
             <tr>
@@ -39,7 +48,21 @@
                 </td>
                 <td>
                     <p>Adds a red color to your dirtbike!</p>
-                    <button type="button" class="btn">Buy now!</button>
+                    <p> This is the default bike.</p>
+                    @{
+                        if (user.SkinRed == true)
+                        {
+                            <button type="button" class="btn" style="background-color: green" disabled>Purchased</button>
+                        }
+                        else
+                        {
+                            <form>
+                                <button type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
+                            </form>
+
+                        }
+                    }
+
                 </td>
             </tr>
             <tr>
@@ -49,7 +72,21 @@
                 </td>
                 <td>
                     <p>Adds a blue color to your dirtbike!</p>
-                    <button type="button" class="btn">Buy now!</button>
+                    <p>Costs 200 GamerPoints</p>
+                    @{
+                        if (user.SkinBlue == true)
+                        {
+
+                            <button type="button" class="btn disabled" style="background-color: green" disabled>Purchased</button>
+                        }
+                        else
+                        {
+                           // <form onsubmit="buy_blue(event, 'bluebtn', @user.Cash )" asp-action="BuyBlue" method="POST">
+                                <button id="bluebtn" type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
+                           // </form>
+
+                        }
+                    }
                 </td>
             </tr>
             <tr>
@@ -59,7 +96,21 @@
                 </td>
                 <td>
                     <p>Adds a green color to your dirtbike!</p>
-                    <button type="button" class="btn">Buy now!</button>
+                    <p>Costs 200 GamerPoints</p>
+                    @{
+                        if (user.SkinGreen == true)
+                        {
+
+                            <button type="button" class="btn disabled" style="background-color: green" disabled>Purchased</button>
+                        }
+                        else
+                        {
+                            <form>
+                                <button type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
+                            </form>
+
+                        }
+                    }
                 </td>
             </tr>
             <tr>
@@ -69,7 +120,21 @@
                 </td>
                 <td>
                     <p>Adds a purple color to your dirtbike!</p>
-                    <button type="button" class="btn">Buy now!</button>
+                    <p>Costs 200 GamerPoints</p>
+                    @{
+                        if (user.SkinPurple == true)
+                        {
+
+                            <button type="button" class="btn disabled" style="background-color: green" disabled>Purchased</button>
+                        }
+                        else
+                        {
+                            <form>
+                                <button type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
+                            </form>
+
+                        }
+                    }
                 </td>
             </tr>
             <tr>
@@ -79,10 +144,30 @@
                 </td>
                 <td>
                     <p>Adds a chrome color to your dirtbike!</p>
-                    <button type="button" class="btn">Buy now!</button>
+                    <p>Costs 500 GamerPoints</p>
+                    @{
+                        if (user.SkinChrome == true)
+                        {
+
+                            <button type="button" class="btn disabled" style="background-color: green" disabled>Purchased</button>
+                        }
+                        else
+                        {
+                            <form onsubmit="" asp-action="BuyThing" method="POST">
+                                <button type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
+                            </form>
+
+                        }
+                    }
                 </td>
             </tr>
 
         </tbody>
     </table>
 </body>
+
+
+@section Scripts
+{
+    <script src="~/js/shopPurchases.js"></script>
+}

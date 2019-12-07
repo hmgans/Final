@@ -18,6 +18,9 @@
 
 }
 
+
+<link rel="stylesheet" href="~/css/leaderboard.css">
+
 <h1>High Scores</h1>
 
 <h3>Level 1 Highscores</h3>
@@ -25,12 +28,11 @@
     <thead>
         <tr>
             <th>
-                Time
-            </th>
-            <th>
                 Username
             </th>
-            <th></th>
+            <th>
+                Time
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -38,10 +40,10 @@
         {
             <tr>
                 <td>
-                    @user.time
+                    @Model.Where(o => o.UserID == user.UserID).FirstOrDefault().UserName
                 </td>
                 <td>
-                    @Model.Where(o => o.UserID == user.UserID).FirstOrDefault().UserName
+                    @user.time
                 </td>
             </tr>
         }
@@ -53,12 +55,11 @@
     <thead>
         <tr>
             <th>
-                Time
-            </th>
-            <th>
                 Username
             </th>
-            <th></th>
+            <th>
+                Time
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -66,10 +67,10 @@
         {
             <tr>
                 <td>
-                    @user.time
+                    @Model.Where(o => o.UserID == user.UserID).FirstOrDefault().UserName
                 </td>
                 <td>
-                    @Model.Where(o => o.UserID == user.UserID).FirstOrDefault().UserName
+                    @user.time
                 </td>
             </tr>
         }
@@ -81,12 +82,11 @@
     <thead>
         <tr>
             <th>
-                Time
-            </th>
-            <th>
                 Username
             </th>
-            <th></th>
+            <th>
+                Time
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -94,10 +94,10 @@
         {
             <tr>
                 <td>
-                    @user.time
+                    @Model.Where(o => o.UserID == user.UserID).FirstOrDefault().UserName
                 </td>
                 <td>
-                    @Model.Where(o => o.UserID == user.UserID).FirstOrDefault().UserName
+                    @user.time
                 </td>
             </tr>
         }
@@ -109,12 +109,11 @@
     <thead>
         <tr>
             <th>
-                Time
-            </th>
-            <th>
                 Username
             </th>
-            <th></th>
+            <th>
+                Time
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -122,10 +121,10 @@
         {
             <tr>
                 <td>
-                    @user.time
+                    @Model.Where(o => o.UserID == user.UserID).FirstOrDefault().UserName
                 </td>
                 <td>
-                    @Model.Where(o => o.UserID == user.UserID).FirstOrDefault().UserName
+                    @user.time
                 </td>
             </tr>
         }
@@ -137,12 +136,11 @@
     <thead>
         <tr>
             <th>
-                Time
-            </th>
-            <th>
                 Username
             </th>
-            <th></th>
+            <th>
+                Time
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -150,13 +148,12 @@
         {
             <tr>
                 <td>
-                    @user.time
+                    @Model.Where(o => o.UserID == user.UserID).FirstOrDefault().UserName
                 </td>
                 <td>
-                    @Model.Where(o => o.UserID == user.UserID).FirstOrDefault().UserName
+                    @user.time
                 </td>
             </tr>
         }
     </tbody>
 </table>
-
