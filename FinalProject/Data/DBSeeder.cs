@@ -1,4 +1,6 @@
 ﻿using FinalProject.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -20,6 +22,36 @@ namespace FinalProject.Data
 
             userContext.Database.Migrate();
             userContext.Database.EnsureCreated();
+
+            string[] roles = new string[] { "Player", "Administrator"};
+
+            foreach (string role in roles)
+            {
+                var roleStore = new RoleStore<IdentityRole>(userContext);
+                
+                if (!userContext.Roles.Any(r => r.Name == role))
+                {
+                    roleStore.CreateAsync(new IdentityRole(role));
+                }
+            }
+
+            IdentityUser[] users = new IdentityUser[] { 
+                new IdentityUser() {UserName= "admin_erin@cs.utah.edu", Email="admin_erin@cs.utah.edu", EmailConfirmed=true}
+            };
+            foreach (IdentityUser user in users)
+            {
+                var userStore = new UserStore<IdentityUser>(userContext);
+                if (!userContext.Users.Any(r => r.Email == user.Email))
+                {
+                    userStore.CreateAsync(user);
+                    userStore.AddToRoleAsync(user, "Player");
+                }
+                
+            }
+
+
+
+
 
             if (context.Levels.Any())
             {
@@ -87,13 +119,13 @@ namespace FinalProject.Data
             }
             context.SaveChanges();
 
-            var users = new User[]
+            var users1 = new User[]
             {
                 new User{Email="a@c.com",Role="Player",UserName="Player1",CurrentLevel=3,NosContainers=0,Nos=false,SkinBlue=false,SkinRed=true,SkinChrome=false,SkinGreen=false,SkinPurple=false,Cash=0},
                 new User{Email="h@c.com",Role="Player",UserName="Player2",CurrentLevel=3,NosContainers=1,Nos=true,SkinBlue=true,SkinRed=true,SkinChrome=false,SkinGreen=false,SkinPurple=false,Cash=500},
                 new User{Email="h@c.com",Role="Player",UserName="Player3",CurrentLevel=3,NosContainers=10,Nos=true,SkinBlue=false,SkinRed=true,SkinChrome=false,SkinGreen=true,SkinPurple=false,Cash=1000},
             };
-            foreach (User s in users)
+            foreach (User s in users1)
             {
                 context.Users.Add(s);
             }
