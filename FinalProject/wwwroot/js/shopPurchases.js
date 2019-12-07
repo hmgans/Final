@@ -6,16 +6,14 @@ var nos = 0;
 var firstRefresh = true;
 var money = 0;
 
-function buy_nos(e, email, par, nosNum, moneySum, moneyID)
-{
+function buy_nos(e, email, par, nosNum, moneySum, moneyID) {
     console.log("in buy_nos function");
 
     console.log(e);
 
     e.preventDefault();
 
-    if (firstRefresh == true)
-    {
+    if (firstRefresh == true) {
         firstRefresh = false;
         nos = nosNum;
         money = moneySum;
@@ -61,10 +59,10 @@ function buy_nos(e, email, par, nosNum, moneySum, moneyID)
 
         }
 
-       
+
 
     }).fail(function (jqXHR, textStatus, errorThrown) {
-        
+
         console.log("failed: ");
         console.log(jqXHR);
         console.log(textStatus);
@@ -80,9 +78,24 @@ function buy_nos(e, email, par, nosNum, moneySum, moneyID)
     });
 }
 
-function buy_blue(e, email, moneySum, moneyID)
-{
-    console.log("in buy_blue function");
+function buy_blue() {
+
+}
+
+function buy_green() {
+
+}
+
+function buy_purple() {
+
+}
+
+function buy_chrome() {
+
+}
+
+function buy_points(e, email, moneySum, moneyID) {
+    console.log("in buy_money function");
 
     console.log(e);
 
@@ -93,9 +106,8 @@ function buy_blue(e, email, moneySum, moneyID)
         money = moneySum;
     }
 
-
     $.ajax({
-        url: "/Users/BuyBlueSkin",
+        url: "/Users/BuyPoints",
 
         data:
         {
@@ -108,27 +120,21 @@ function buy_blue(e, email, moneySum, moneyID)
     }).done(function (result) {
 
         console.log("action taken: " + result)
-        if (result.money == true) {
-            swal.fire({
-                type: 'error',
-                title: 'You do not have enough GamerPoints!',
-                text: 'Buy some more!'
+
+
+        money += 500;
+
+        $("#" + moneyID).text("You currently have " + money + " Gamer Points");
+
+
+        Swal.fire
+            ({
+                type: 'success',
+                title: 'You bought Gamer Points!',
+                text: 'Race on gamer!'
             })
-        }
-        else {
 
-            money -= 200;
 
-            $("#" + moneyID).text("You currently have " + money + " GamerPoints");
-            $('#blubtn').removeStyle('background-color: #D64933').addStyle('background-color: green');
-            Swal.fire
-                ({
-                    type: 'success',
-                    title: 'You bought a blue skin!',
-                    text: 'Race on gamer!'
-                })
-
-        }
 
     }).fail(function (jqXHR, textStatus, errorThrown) {
 
@@ -145,19 +151,5 @@ function buy_blue(e, email, moneySum, moneyID)
     }).always(function () {
         console.log("but I will always do this")
     });
-}
-
-function buy_green()
-{
-
-}
-
-function buy_purple()
-{
-
-}
-
-function buy_chrome()
-{
 
 }

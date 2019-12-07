@@ -295,5 +295,18 @@ namespace FinalProject.Controllers
                 return Json(new { success = false, money = true });
             }
         }
+
+        [HttpPost]
+        public JsonResult BuyPoints(string Email, int Money)
+        {
+
+            var user = _context.Users.Where(e => e.Email == Email).FirstOrDefault();
+            user.Cash += 500;
+
+            _context.SaveChanges();
+
+
+            return Json(new { success = true });
+        }
     }
 }
