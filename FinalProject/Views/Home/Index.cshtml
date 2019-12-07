@@ -2,7 +2,58 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@section Scripts
+{
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.0.0/pixi.min.js"></script>
+    <!--
+    <script type="text/javascript" src="~/js/Game_Controller.js"></script>
+    <script type="text/javascript" src="~/js/bike.js"></script>
+
+
+    <script type="text/javascript">
+
+        var game_controller;
+
+        $(function () {
+            game_controller = new Game_Controller();
+
+            game_controller.main();
+        });
+    </script>
+    -->
+}
+
+<!doctype html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Dirt Bike</title>
+
+</head>
+
+<body onload="init();">
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
+
+    <div align="center">
+        <canvas id="game-canvas" width="800" height="600"></canvas>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.0.0/pixi.min.js"></script>
+    <script src="~/js/Background.js"></script>
+    <script src="~/js/Bike.js"></script>
+    <script src="~/js/Scroller.js"></script>
+    <script src="~/js/Main.js"></script>
+    <script>
+        function init() {
+            main = new Main();
+        }
+    </script>
+
+
+
+
+    <!--<div id="canvas_div"></div>-->
+</body>
