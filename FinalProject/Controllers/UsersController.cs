@@ -35,6 +35,8 @@ namespace FinalProject.Controllers
             return View(await _context.Users.ToListAsync());
         }
 
+
+        //Displays the view for the leaderboard
         public async Task<IActionResult> LeaderBoard()
         {
             var level_1 = _context.HighScores.Where(o => o.LevelID == 1).OrderBy(o => o.time).Take(10);
@@ -54,8 +56,11 @@ namespace FinalProject.Controllers
 
             return View(await _context.Users.ToListAsync());
         }
+
+        //displays the view for the shop
         public async Task<IActionResult> Shop()
         {
+            //gets the current user data and sends it to the view
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
             var email = _userManager.FindByIdAsync(userId).Result;
@@ -69,14 +74,17 @@ namespace FinalProject.Controllers
             return View();
         }
 
+        //displays the view for the profile
         public async Task<IActionResult> Profile()
         {
+            //gets the user information and passes it to the view
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
             var email = _userManager.FindByIdAsync(userId).Result;
 
             var userInfo = _context.Users.Where(u => u.Email == email.Email).FirstOrDefault();
 
+            //gets the level times and passes it to the view
             var levelTimes = _context.HighScores.Where(u => u.UserID == userInfo.UserID).OrderBy(o => o.LevelID);
 
             ViewData["UserInfo"] = userInfo;
@@ -211,11 +219,13 @@ namespace FinalProject.Controllers
             return _context.Users.Any(e => e.UserID == id);
         }
 
-
+        //handles buying nos fromt eh shop
         [HttpPost]
         public JsonResult BuyNos(string Email, int Money)
         {
-            if(Money >= 100)
+            //if the user has enough money, make the purchase
+
+            if (Money >= 100)
             {
 
                 var user = _context.Users.Where(e => e.Email == Email).FirstOrDefault();
@@ -233,10 +243,11 @@ namespace FinalProject.Controllers
             }
         }
 
-       
-
+        //handles buying hte blue skin from the shop
+        [HttpPost]
         public JsonResult BuyBlueSkin(string Email, int Money)
         {
+            //if the user has enough money, make the purchase
             if (Money >= 200)
             {
 
@@ -255,8 +266,12 @@ namespace FinalProject.Controllers
             }
         }
 
+        //handles buying the green skin for the shop
+        [HttpPost]
         public JsonResult BuyGreenSkin(string Email, int Money)
         {
+            //if the user has enough money, make the purchase
+
             if (Money >= 200)
             {
 
@@ -275,8 +290,11 @@ namespace FinalProject.Controllers
             }
         }
 
+        //handles the buying purple skin for the shop
+        [HttpPost]
         public JsonResult BuyPurpleSkin(string Email, int Money)
         {
+            //if the user has enough money, make the purchase
             if (Money >= 200)
             {
 
@@ -295,8 +313,12 @@ namespace FinalProject.Controllers
             }
         }
 
+        //handles the buying chrome skin from the shop
+        [HttpPost]
         public JsonResult BuyChromeSkin(string Email, int Money)
         {
+            //if the user has enough money, make the purchase
+
             if (Money >= 500)
             {
 
@@ -315,6 +337,7 @@ namespace FinalProject.Controllers
             }
         }
 
+        //Handles the buying points request for the shop
         [HttpPost]
         public JsonResult BuyPoints(string Email, int Money)
         {

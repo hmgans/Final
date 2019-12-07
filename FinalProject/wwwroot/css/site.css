@@ -7,6 +7,7 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+/*changed the background color of the navbar to fit our theme*/
 nav {
     background-color: #7C7C7C;
 }
