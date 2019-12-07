@@ -191,5 +191,20 @@ namespace FinalProject.Controllers
         {
             return _context.Users.Any(e => e.UserID == id);
         }
+
+
+        //[HttpPost]
+        //add JsonResult instead of Null
+        public void BuyNos(string Email)
+        {
+            var user = _context.Users.Where(e => e.Email == Email).FirstOrDefault();
+            user.NosContainers += 1;
+
+            _context.SaveChanges();
+
+
+
+            //return Json(new { });
+        }
     }
 }
