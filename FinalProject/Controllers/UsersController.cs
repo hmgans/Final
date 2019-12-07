@@ -216,24 +216,84 @@ namespace FinalProject.Controllers
 
        
 
-        public void BuyBlueSkin()
+        public JsonResult BuyBlueSkin(string Email, int Money)
         {
+            if (Money >= 200)
+            {
 
+                var user = _context.Users.Where(e => e.Email == Email).FirstOrDefault();
+                user.SkinBlue = true;
+
+                _context.SaveChanges();
+
+
+
+                return Json(new { success = true, money = false });
+            }
+            else
+            {
+                return Json(new { success = false, money = true });
+            }
         }
 
-        public void BuyGreenSkin()
+        public JsonResult BuyGreenSkin(string Email, int Money)
         {
+            if (Money >= 200)
+            {
 
+                var user = _context.Users.Where(e => e.Email == Email).FirstOrDefault();
+                user.SkinGreen = true;
+
+                _context.SaveChanges();
+
+
+
+                return Json(new { success = true, money = false });
+            }
+            else
+            {
+                return Json(new { success = false, money = true });
+            }
         }
 
-        public void BuyPurpleSkin()
+        public JsonResult BuyPurpleSkin(string Email, int Money)
         {
+            if (Money >= 200)
+            {
 
+                var user = _context.Users.Where(e => e.Email == Email).FirstOrDefault();
+                user.SkinPurple = true;
+
+                _context.SaveChanges();
+
+
+
+                return Json(new { success = true, money = false });
+            }
+            else
+            {
+                return Json(new { success = false, money = true });
+            }
         }
 
-        public void BuyChromeSkin()
+        public JsonResult BuyChromeSkin(string Email, int Money)
         {
+            if (Money >= 200)
+            {
 
+                var user = _context.Users.Where(e => e.Email == Email).FirstOrDefault();
+                user.SkinChrome = true;
+
+                _context.SaveChanges();
+
+
+
+                return Json(new { success = true, money = false });
+            }
+            else
+            {
+                return Json(new { success = false, money = true });
+            }
         }
     }
 }

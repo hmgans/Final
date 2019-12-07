@@ -88,9 +88,9 @@
                         }
                         else
                         {
-                            // <form onsubmit="buy_blue(event, 'bluebtn', @user.Cash )" asp-action="BuyBlue" method="POST">
-                            <button id="bluebtn" type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
-                            // </form>
+                            <form onsubmit="buy_blue(event, '@user.Email', @user.Cash, '@moneyID' )" asp-action="BuyBlue" method="POST">
+                                <button id="bluebtn" type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
+                            </form>
 
                         }
                     }
