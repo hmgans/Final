@@ -1,12 +1,15 @@
 ﻿
 @{
     ViewData["Title"] = "Shop";
+    User user = ViewData["UserInfo"] as User;
 }
 
 
 <link rel="stylesheet" href="~/css/shop.css">
 
 <h1>Shop</h1>
+
+<h2>You currently have @user.Cash GamerPoints</h2>
 
 <body>
 
@@ -29,7 +32,8 @@
                 </td>
                 <td>
                     <p>Adds a NOS container to your inventory that can be used to give a speed boost to your next race!</p>
-                    <button type="button" class="btn">Buy now!</button>
+                    <p>You currently have @user.NosContainers containers!</p>
+                    <button type="button" class="btn" style="background-color: #D64933">Buy now!</button>
                 </td>
             </tr>
             <tr>
@@ -39,7 +43,19 @@
                 </td>
                 <td>
                     <p>Adds a red color to your dirtbike!</p>
-                    <button type="button" class="btn">Buy now!</button>
+                    <p> This is the default bike.</p>
+                    @{
+                        if (user.SkinRed == true)
+                        {
+                            <button type="button" class="btn" style="background-color: green" disabled>Purchased</button>
+                        }
+                        else
+                        {
+                            <button type="button" class="btn" style="background-color: #D64933">Buy now!</button>
+
+                        }
+                    }
+
                 </td>
             </tr>
             <tr>
@@ -49,7 +65,18 @@
                 </td>
                 <td>
                     <p>Adds a blue color to your dirtbike!</p>
-                    <button type="button" class="btn">Buy now!</button>
+                    @{
+                        if (user.SkinBlue == true)
+                        {
+
+                            <button type="button" class="btn disabled" style="background-color: green" disabled>Purchased</button>
+                        }
+                        else
+                        {
+                            <button type="button" class="btn" style="background-color: #D64933">Buy now!</button>
+
+                        }
+                    }
                 </td>
             </tr>
             <tr>
@@ -59,7 +86,18 @@
                 </td>
                 <td>
                     <p>Adds a green color to your dirtbike!</p>
-                    <button type="button" class="btn">Buy now!</button>
+                    @{
+                        if (user.SkinGreen == true)
+                        {
+
+                            <button type="button" class="btn disabled" style="background-color: green" disabled>Purchased</button>
+                        }
+                        else
+                        {
+                            <button type="button" class="btn" style="background-color: #D64933">Buy now!</button>
+
+                        }
+                    }
                 </td>
             </tr>
             <tr>
@@ -69,7 +107,18 @@
                 </td>
                 <td>
                     <p>Adds a purple color to your dirtbike!</p>
-                    <button type="button" class="btn">Buy now!</button>
+                    @{
+                        if (user.SkinPurple == true)
+                        {
+
+                            <button type="button" class="btn disabled" style="background-color: green" disabled>Purchased</button>
+                        }
+                        else
+                        {
+                            <button type="button" class="btn" style="background-color: #D64933">Buy now!</button>
+
+                        }
+                    }
                 </td>
             </tr>
             <tr>
@@ -79,7 +128,18 @@
                 </td>
                 <td>
                     <p>Adds a chrome color to your dirtbike!</p>
-                    <button type="button" class="btn">Buy now!</button>
+                    @{
+                        if (user.SkinChrome == true)
+                        {
+
+                            <button type="button" class="btn disabled" style="background-color: green" disabled>Purchased</button>
+                        }
+                        else
+                        {
+                            <button type="button" class="btn" style="background-color: #D64933">Buy now!</button>
+
+                        }
+                    }
                 </td>
             </tr>
 

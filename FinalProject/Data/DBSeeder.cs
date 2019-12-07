@@ -89,7 +89,7 @@ namespace FinalProject.Data
 
             var users = new User[]
             {
-                new User{Email="h@c.com",Role="Player",UserName="Player1",CurrentLevel=3,NosContainers=0,Nos=false,SkinBlue=false,SkinRed=true,SkinChrome=false,SkinGreen=false,SkinPurple=false,Cash=0},
+                new User{Email="a@c.com",Role="Player",UserName="Player1",CurrentLevel=3,NosContainers=0,Nos=false,SkinBlue=false,SkinRed=true,SkinChrome=false,SkinGreen=false,SkinPurple=false,Cash=0},
                 new User{Email="h@c.com",Role="Player",UserName="Player2",CurrentLevel=3,NosContainers=1,Nos=true,SkinBlue=true,SkinRed=true,SkinChrome=false,SkinGreen=false,SkinPurple=false,Cash=500},
                 new User{Email="h@c.com",Role="Player",UserName="Player3",CurrentLevel=3,NosContainers=10,Nos=true,SkinBlue=false,SkinRed=true,SkinChrome=false,SkinGreen=true,SkinPurple=false,Cash=1000},
             };

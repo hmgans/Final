@@ -7,16 +7,26 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FinalProject.Data;
 using FinalProject.Models;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace FinalProject.Controllers
 {
     public class UsersController : Controller
     {
         private readonly DataBaseContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public UsersController(DataBaseContext context)
+        public UsersController(DataBaseContext context, IHttpContextAccessor httpContextAccessor, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            //_userContext = userContext;
+            _httpContextAccessor = httpContextAccessor;
+            _userManager = userManager;
+
         }
 
         // GET: Users
@@ -46,11 +56,13 @@ namespace FinalProject.Controllers
         }
         public async Task<IActionResult> Shop()
         {
+            var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            //var user = _userManager.GetUserAsync(HttpContext.User);
+            var email = _userManager.FindByIdAsync(userId).Result;
 
-            //Console.WriteLine(user.Id);
+            var userInfo = _context.Users.Where(u => u.Email == email.Email).FirstOrDefault();
 
+            ViewData["UserInfo"] = userInfo;
 
             return View();
         }

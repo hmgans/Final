@@ -6,15 +6,21 @@
 
 */
 
-button {
+
+
+/*
+table button {
     background-color: #D64933;
     color: black;
 }
 
-.btn {
+table .btn {
     background-color: #D64933;
     color: black;
 }
+    */
+
+
 
 body {
     background-color: #EEE5E9;
@@ -24,6 +30,10 @@ h1 {
     text-align: center;
     text-decoration: underline;
     color: black;
+}
+
+h2 {
+    text-align: center;
 }
 
 table {
