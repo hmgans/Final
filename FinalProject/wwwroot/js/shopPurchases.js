@@ -26,7 +26,7 @@ function buy_nos(e, email, par, nosNum, moneySum, moneyID) {
         data:
         {
             Email: email,
-            Money: moneySum
+            Money: money
         },
 
         //method: "POST"
@@ -46,7 +46,7 @@ function buy_nos(e, email, par, nosNum, moneySum, moneyID) {
             nos++;
             money -= 100;
 
-            $("#" + moneyID).text("You currently have " + money + " GamerPoints");
+            $("#" + moneyID).text("You currently have " + money + " Gamer Points");
 
             $("#" + par).text("You currently have " + nos + " containers!");
 
@@ -97,7 +97,7 @@ function buy_blue(e, email, moneySum, moneyID) {
         data:
         {
             Email: email,
-            Money: moneySum
+            Money: money
         },
 
         //method: "POST"
@@ -176,7 +176,7 @@ function buy_points(e, email, moneySum, moneyID) {
         data:
         {
             Email: email,
-            Money: moneySum
+            Money: money
         },
 
         //method: "POST"

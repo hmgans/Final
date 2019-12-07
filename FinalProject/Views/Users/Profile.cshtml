@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "Profile";
+    User user = ViewData["UserInfo"] as User;
+    IEnumerable<HighScore> scores = ViewData["LevelTimes"] as IEnumerable<HighScore>;
+
+}
+
+<h1>Profile</h1>
+
+<h2>User: @user.UserName </h2>
+
+
