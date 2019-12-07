@@ -6,7 +6,7 @@ var nos = 0;
 var firstRefresh = true;
 var money = 0;
 
-function buy_nos(e, email, par, nosNum, moneySum)
+function buy_nos(e, email, par, nosNum, moneySum, moneyID)
 {
     console.log("in buy_nos function");
 
@@ -44,10 +44,13 @@ function buy_nos(e, email, par, nosNum, moneySum)
             })
         }
         else {
-            $("#" + par).text("You currently have " + nos + " containers!");
 
             nos++;
             money -= 100;
+
+            $("#" + moneyID).text("You currently have " + money + " GamerPoints");
+
+            $("#" + par).text("You currently have " + nos + " containers!");
 
             Swal.fire
                 ({
