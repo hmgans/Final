@@ -193,18 +193,25 @@ namespace FinalProject.Controllers
         }
 
 
-        //[HttpPost]
-        //add JsonResult instead of Null
-        public void BuyNos(string Email)
+        [HttpPost]
+        public JsonResult BuyNos(string Email, int Money)
         {
-            var user = _context.Users.Where(e => e.Email == Email).FirstOrDefault();
-            user.NosContainers += 1;
+            if(Money >= 100)
+            {
 
-            _context.SaveChanges();
+                var user = _context.Users.Where(e => e.Email == Email).FirstOrDefault();
+                user.NosContainers += 1;
+
+                _context.SaveChanges();
 
 
 
-            //return Json(new { });
+                return Json(new { success = true, money = false});
+            }
+            else
+            {
+                return Json(new { success = false, money = true });
+            }
         }
 
        

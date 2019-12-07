@@ -4,8 +4,9 @@
 
 var nos = 0;
 var firstRefresh = true;
+var money = 0;
 
-function buy_nos(e, email, par, nosNum)
+function buy_nos(e, email, par, nosNum, moneySum)
 {
     console.log("in buy_nos function");
 
@@ -17,28 +18,60 @@ function buy_nos(e, email, par, nosNum)
     {
         firstRefresh = false;
         nos = nosNum;
+        money = moneySum;
     }
 
-    nos++;
 
     $.ajax({
         url: "/Users/BuyNos",
 
         data:
         {
-            Email: email
+            Email: email,
+            Money: moneySum
         },
 
         //method: "POST"
         method: e.srcElement.method
     }).done(function (result) {
+
         console.log("action taken: " + result)
-        $("#" + par).text("You currently have " + nos + " containers!");
+        if (result.money == true) {
+            swal.fire({
+                type: 'error',
+                title: 'You do not have enough GamerPoints!',
+                text: 'Buy some more!'
+            })
+        }
+        else {
+            $("#" + par).text("You currently have " + nos + " containers!");
+
+            nos++;
+            money -= 100;
+
+            Swal.fire
+                ({
+                    type: 'success',
+                    title: 'You bought Nos!',
+                    text: 'Race on gamer!'
+                })
+
+        }
+
+       
+
     }).fail(function (jqXHR, textStatus, errorThrown) {
+        
         console.log("failed: ");
         console.log(jqXHR);
         console.log(textStatus);
         console.log(errorThrown);
+        Swal.fire
+            ({
+                type: 'error',
+                title: 'Something went wrong...',
+                text: 'Try again later!'
+            })
     }).always(function () {
         console.log("but I will always do this")
     });
