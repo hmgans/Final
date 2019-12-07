@@ -11,7 +11,7 @@ namespace FinalProject.Data
 {
     public class DBSeeder
     {
-        public static void Initialize(DataBaseContext context, ApplicationDbContext userContext)
+        public static void Initialize(DataBaseContext context, ApplicationDbContext userContext, UserManager<IdentityUser> _userManager, RoleManager<IdentityRole> _roleManager)
         {
 
             userContext.Database.EnsureDeleted();
@@ -23,15 +23,14 @@ namespace FinalProject.Data
             userContext.Database.Migrate();
             userContext.Database.EnsureCreated();
 
-            string[] roles = new string[] { "Player", "Administrator"};
+            string[] roles = new string[] {"Player", "Administrator"  };
 
             foreach (string role in roles)
             {
-                var roleStore = new RoleStore<IdentityRole>(userContext);
                 
-                if (!userContext.Roles.Any(r => r.Name == role))
+                if (!_roleManager.RoleExistsAsync(role).Result)
                 {
-                    roleStore.CreateAsync(new IdentityRole(role));
+                    var role2 = _roleManager.CreateAsync(new IdentityRole { Name = role}).Result;
                 }
             }
 
@@ -40,14 +39,19 @@ namespace FinalProject.Data
             };
             foreach (IdentityUser user in users)
             {
-                var userStore = new UserStore<IdentityUser>(userContext);
+                
                 if (!userContext.Users.Any(r => r.Email == user.Email))
                 {
-                    userStore.CreateAsync(user);
-                    userStore.AddToRoleAsync(user, "Player");
+                    var result = _userManager.CreateAsync(user, "Password123!@#").Result;
                 }
                 
             }
+
+            var user2 = _userManager.FindByNameAsync("admin_erin@cs.utah.edu").Result;
+            var result2 = _userManager.AddToRoleAsync(user2, "Player").Result;
+
+            userContext.SaveChanges();
+            
 
 
 
