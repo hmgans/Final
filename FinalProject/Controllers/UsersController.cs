@@ -1,19 +1,4 @@
-﻿/**
- * Author:    Jonathon Smith and Giovanni Varuloa and Hank Gansert
- * Partner:   None
- * Date:      12/4/19
- * Course:    CS 4540, University of Utah, School of Computing
- * Copyright: CS 4540 and Jonathon Smith - This work may not be copied for use in Academic Coursework.
- *
- * I, Jonathon Smith and Giovanni Varuloa and Hank Gansert, certify that I wrote this code from scratch and did not copy it in part or whole from 
- * another source.  Any references used in the completion of the assignment are cited in my README file.
- *
- * File Contents
- *
- *    Controller for Users, including purchases
- */
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -45,11 +30,13 @@ namespace FinalProject.Controllers
         }
 
         // GET: Users
+        [Authorize(Roles = "Player")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Users.ToListAsync());
         }
 
+        [Authorize(Roles = "Player")]
         public async Task<IActionResult> LeaderBoard()
         {
             var level_1 = _context.HighScores.Where(o => o.LevelID == 1).OrderBy(o => o.time).Take(10);
@@ -69,6 +56,7 @@ namespace FinalProject.Controllers
 
             return View(await _context.Users.ToListAsync());
         }
+        [Authorize(Roles = "Player")]
         public async Task<IActionResult> Shop()
         {
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
@@ -83,7 +71,7 @@ namespace FinalProject.Controllers
 
             return View();
         }
-
+        [Authorize(Roles = "Player")]
         public async Task<IActionResult> Profile()
         {
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
@@ -101,7 +89,7 @@ namespace FinalProject.Controllers
             return View();
         }
 
-        // GET: Users/Details/5
+        [Authorize(Roles = "Player")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -120,6 +108,7 @@ namespace FinalProject.Controllers
         }
 
         // GET: Users/Create
+        [Authorize(Roles = "Player")]
         public IActionResult Create()
         {
             return View();
@@ -130,6 +119,7 @@ namespace FinalProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Player")]
         public async Task<IActionResult> Create([Bind("UserID,Email,Role,UserName,CurrentLevel,NosContainers,Cash,Nos,SkinRed,SkinBlue,SkinGreen,SkinPurple,SkinChrome")] User user)
         {
             if (ModelState.IsValid)
@@ -142,6 +132,7 @@ namespace FinalProject.Controllers
         }
 
         // GET: Users/Edit/5
+        [Authorize(Roles = "Player")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -162,6 +153,7 @@ namespace FinalProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Player")]
         public async Task<IActionResult> Edit(int id, [Bind("UserID,Email,Role,UserName,CurrentLevel,NosContainers,Cash,Nos,SkinRed,SkinBlue,SkinGreen,SkinPurple,SkinChrome")] User user)
         {
             if (id != user.UserID)
@@ -193,6 +185,7 @@ namespace FinalProject.Controllers
         }
 
         // GET: Users/Delete/5
+        [Authorize(Roles = "Player")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -213,6 +206,7 @@ namespace FinalProject.Controllers
         // POST: Users/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Player")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var user = await _context.Users.FindAsync(id);
@@ -228,6 +222,7 @@ namespace FinalProject.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles = "Player")]
         public JsonResult BuyNos(string Email, int Money)
         {
             if(Money >= 100)
@@ -248,8 +243,8 @@ namespace FinalProject.Controllers
             }
         }
 
-       
 
+        [Authorize(Roles = "Player")]
         public JsonResult BuyBlueSkin(string Email, int Money)
         {
             if (Money >= 200)
@@ -269,7 +264,7 @@ namespace FinalProject.Controllers
                 return Json(new { success = false, money = true });
             }
         }
-
+        [Authorize(Roles = "Player")]
         public JsonResult BuyGreenSkin(string Email, int Money)
         {
             if (Money >= 200)
@@ -289,7 +284,7 @@ namespace FinalProject.Controllers
                 return Json(new { success = false, money = true });
             }
         }
-
+        [Authorize(Roles = "Player")]
         public JsonResult BuyPurpleSkin(string Email, int Money)
         {
             if (Money >= 200)
@@ -309,7 +304,7 @@ namespace FinalProject.Controllers
                 return Json(new { success = false, money = true });
             }
         }
-
+        [Authorize(Roles = "Player")]
         public JsonResult BuyChromeSkin(string Email, int Money)
         {
             if (Money >= 500)
@@ -331,6 +326,7 @@ namespace FinalProject.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Player")]
         public JsonResult BuyPoints(string Email, int Money)
         {
 

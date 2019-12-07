@@ -50,20 +50,39 @@ namespace FinalProject.Data
             }
 
             IdentityUser[] users = new IdentityUser[] { 
-                new IdentityUser() {UserName= "admin_erin@cs.utah.edu", Email="admin_erin@cs.utah.edu", EmailConfirmed=true}
+                new IdentityUser() {UserName= "admin_erin@cs.utah.edu", Email="admin_erin@cs.utah.edu", EmailConfirmed=true},
+                 new IdentityUser() {UserName= "hankgansert@cs.utah.edu", Email="hankgansert@cs.utah.edu", EmailConfirmed=true},
+                  new IdentityUser() {UserName= "jonsmith@cs.utah.edu", Email="jonsmith@cs.utah.edu", EmailConfirmed=true},
+                   new IdentityUser() {UserName= "giovanni@cs.utah.edu", Email="giovanni@cs.utah.edu", EmailConfirmed=true},
+                    new IdentityUser() {UserName= "santa@cs.utah.edu", Email="santa@cs.utah.edu", EmailConfirmed=true}
             };
-            foreach (IdentityUser user in users)
+            if(!userContext.Users.Any(usr => usr.UserName == "admin_erin@cs.utah.edu"))
             {
-                
-                if (!userContext.Users.Any(r => r.Email == user.Email))
-                {
-                    var result = _userManager.CreateAsync(user, "Password123!@#").Result;
-                }
-                
+                var userResult = _userManager.CreateAsync(users[0], "Password123!@#").Result;
+                var addResult = _userManager.AddToRoleAsync(users[0], "Player").Result;
             }
 
-            var user2 = _userManager.FindByNameAsync("admin_erin@cs.utah.edu").Result;
-            var result2 = _userManager.AddToRoleAsync(user2, "Player").Result;
+            if (!userContext.Users.Any(usr => usr.UserName == "hankgansert@cs.utah.edu"))
+            {
+                var userResult1 = _userManager.CreateAsync(users[1], "Password123!@#").Result;
+                var addResult1 = _userManager.AddToRoleAsync(users[1], "Player").Result;
+            }
+
+            
+
+            if (!userContext.Users.Any(usr => usr.UserName == "giovanni@cs.utah.edu"))
+            {
+                var userResult2 = _userManager.CreateAsync(users[3], "Password123!@#").Result;
+                var addResult2 = _userManager.AddToRoleAsync(users[3], "Player").Result;
+            }
+
+            if (!userContext.Users.Any(usr => usr.UserName == "santa@cs.utah.edu"))
+            {
+                var userResult3 = _userManager.CreateAsync(users[4], "Password123!@#").Result;
+                var addResult3 = _userManager.AddToRoleAsync(users[4], "Player").Result;
+            }
+
+
 
             userContext.SaveChanges();
             
@@ -140,9 +159,9 @@ namespace FinalProject.Data
 
             var users1 = new User[]
             {
-                new User{Email="a@c.com",Role="Player",UserName="Player1",CurrentLevel=3,NosContainers=0,Nos=false,SkinBlue=false,SkinRed=true,SkinChrome=false,SkinGreen=false,SkinPurple=false,Cash=0},
-                new User{Email="h@c.com",Role="Player",UserName="Player2",CurrentLevel=3,NosContainers=1,Nos=true,SkinBlue=true,SkinRed=true,SkinChrome=false,SkinGreen=false,SkinPurple=false,Cash=500},
-                new User{Email="h@c.com",Role="Player",UserName="Player3",CurrentLevel=3,NosContainers=10,Nos=true,SkinBlue=false,SkinRed=true,SkinChrome=false,SkinGreen=true,SkinPurple=false,Cash=1000},
+                new User{Email="admin_erin@cs.utah.edu",Role="Player",UserName="admin_erin@cs.utah.edu",CurrentLevel=3,NosContainers=0,Nos=false,SkinBlue=false,SkinRed=true,SkinChrome=false,SkinGreen=false,SkinPurple=false,Cash=0},
+                new User{Email="hankgansert@cs.utah.edu",Role="Player",UserName="hankgansert@cs.utah.edu",CurrentLevel=3,NosContainers=1,Nos=true,SkinBlue=true,SkinRed=true,SkinChrome=false,SkinGreen=false,SkinPurple=false,Cash=500},
+                new User{Email="santa@cs.utah.edu",Role="Player",UserName="santa@cs.utah.edu",CurrentLevel=3,NosContainers=10,Nos=true,SkinBlue=false,SkinRed=true,SkinChrome=false,SkinGreen=true,SkinPurple=false,Cash=1000},
             };
             foreach (User s in users1)
             {

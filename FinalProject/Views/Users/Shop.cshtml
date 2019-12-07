@@ -29,9 +29,10 @@
     var moneyID = "gamerpoints";
 }
 
-
+<!--sets Header for displaying money-->
 <h2 id="gamerpoints">You currently have @user.Cash Gamer Points</h2>
 
+<!--Sets up header and button for buying points-->
 <h3> Buy more Gamer Points!</h3>
 <div style="text-align: center">
     <form onsubmit="buy_points(event, '@user.Email', @user.Cash, '@moneyID' )" asp-action="BuyPoints" method="POST">
@@ -39,6 +40,9 @@
     </form>
 </div>
 
+<!--displays table for the shop
+    each row has an image and a description along with a button to buy the item
+    buying uses javascript to make the purchases and sweetalerts for visual feedback-->
 <body>
     <table class="table table-bordered">
         <thead>
