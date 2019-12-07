@@ -62,11 +62,9 @@ namespace FinalProject.Controllers
 
             var userInfo = _context.Users.Where(u => u.Email == email.Email).FirstOrDefault();
 
-            var levelTimes = _context.HighScores.Where(u => u.UserID == userInfo.UserID).OrderBy(o => o.LevelID);
 
 
             ViewData["UserInfo"] = userInfo;
-            ViewData["LevelTimes"] = levelTimes;
 
             return View();
         }
@@ -79,7 +77,11 @@ namespace FinalProject.Controllers
 
             var userInfo = _context.Users.Where(u => u.Email == email.Email).FirstOrDefault();
 
+            var levelTimes = _context.HighScores.Where(u => u.UserID == userInfo.UserID).OrderBy(o => o.LevelID);
+
             ViewData["UserInfo"] = userInfo;
+
+            ViewData["LevelTimes"] = levelTimes;
 
             return View();
         }
