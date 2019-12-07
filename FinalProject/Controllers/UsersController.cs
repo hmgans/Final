@@ -206,5 +206,27 @@ namespace FinalProject.Controllers
 
             //return Json(new { });
         }
+
+       
+
+        public void BuyBlueSkin()
+        {
+
+        }
+
+        public void BuyGreenSkin()
+        {
+
+        }
+
+        public void BuyPurpleSkin()
+        {
+
+        }
+
+        public void BuyChromeSkin()
+        {
+
+        }
     }
 }
