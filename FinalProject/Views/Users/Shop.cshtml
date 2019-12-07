@@ -14,9 +14,14 @@
 }
 
 
-<h2 id="gamerpoints">You currently have @user.Cash GamerPoints</h2>
+<h2 id="gamerpoints">You currently have @user.Cash Gamer Points</h2>
 
 <h3> Buy more Gamer Points!</h3>
+<div style="text-align: center">
+    <form onsubmit="buy_points(event, '@user.Email', @user.Cash, '@moneyID' )" asp-action="BuyPoints" method="POST">
+        <button type="submit" class="btn" style="background-color: #D64933">Buy now!</button>
+    </form>
+</div>
 
 <body>
     <table class="table table-bordered">
