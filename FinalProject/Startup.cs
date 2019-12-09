@@ -61,7 +61,8 @@ namespace FinalProject
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddRoles<IdentityRole>();
+                .AddRoles<IdentityRole>().AddDefaultTokenProviders();
+
 
 
             //https://docs.microsoft.com/en-us/aspnet/identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project
@@ -113,6 +114,7 @@ namespace FinalProject
                 app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
+                app.UseDeveloperExceptionPage();
             }
 
             app.UseHttpsRedirection();
